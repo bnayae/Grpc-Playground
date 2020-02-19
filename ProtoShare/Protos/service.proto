@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "Weknow";
+
+package service;
+
+service Service {
+  rpc Call (DemoRequest) returns (DemoResponse);
+  rpc Upload (stream DemoRequest) returns (DemoResponse);
+  rpc Download (DemoRequest) returns (stream DemoResponse);
+  rpc Transform (stream DemoRequest) returns (stream DemoResponse);
+}
+
+message DemoRequest {
+  string name = 1;
+}
+message DemoResponse {
+  string message = 1;
+}
